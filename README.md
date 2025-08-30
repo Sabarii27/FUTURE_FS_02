@@ -1,8 +1,5 @@
 
 
-<p align="center">
-	<img src="https://img.icons8.com/color/96/000000/vegetarian-food-symbol.png" width="80" alt="Organic Groceries Logo"/>
-</p>
 
 # 🥦 Organic Groceries
 
@@ -41,7 +38,7 @@ In a world full of processed foods, Organic Groceries brings you a digital exper
 ## 🚀 Live Demo
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/placeholder/demo-groceries.gif" alt="Organic Groceries Demo" width="700"/>
+	<img src="https://future-fs-02-iota.vercel.app/" alt="Organic Groceries Demo" width="700"/>
 </p>
 
 ---
