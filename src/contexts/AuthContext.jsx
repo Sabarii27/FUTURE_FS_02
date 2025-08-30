@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { auth, googleProvider } from '../firebase'
-import { onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, updateProfile, updateCurrentUser } from 'firebase/auth'
+import { onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, signInWithRedirect, updateProfile, updateCurrentUser } from 'firebase/auth'
 
 const AuthContext = createContext(null)
 
@@ -30,7 +30,15 @@ function AuthProvider({ children }) {
     if (name) await updateProfile(cred.user, { displayName: name })
     return cred
   }
-  const loginWithGoogle = () => signInWithPopup(auth, googleProvider)
+  const loginWithGoogle = () => {
+    // Use redirect on mobile, popup on desktop
+    const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|Mobile/i.test(navigator.userAgent);
+    if (isMobile) {
+      return signInWithRedirect(auth, googleProvider);
+    } else {
+      return signInWithPopup(auth, googleProvider);
+    }
+  }
   const logout = () => signOut(auth)
 
 
