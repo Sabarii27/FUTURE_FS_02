@@ -38,7 +38,9 @@ In a world full of processed foods, Organic Groceries brings you a digital exper
 ## 🚀 Live Demo
 
 <p align="center">
-	<img src="https://future-fs-02-iota.vercel.app/" alt="Organic Groceries Demo" width="700"/>
+	<a href="https://future-fs-02-iota.vercel.app/" target="_blank">
+		<img src="https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen?style=for-the-badge&logo=vercel" alt="Live Demo"/>
+	</a>
 </p>
 
 ---

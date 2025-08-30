@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { auth, googleProvider } from '../firebase'
-import { onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, signInWithRedirect, updateProfile, updateCurrentUser } from 'firebase/auth'
+import { onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, signInWithRedirect, getRedirectResult, updateProfile, updateCurrentUser } from 'firebase/auth'
 
 const AuthContext = createContext(null)
 
@@ -9,6 +9,14 @@ function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    // Handle Google sign-in redirect result (for mobile)
+    getRedirectResult(auth)
+      .then((result) => {
+        if (result && result.user) {
+          setUser(result.user);
+        }
+      })
+      .catch(() => {});
     const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u)
       setLoading(false)
