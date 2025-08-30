@@ -16,7 +16,9 @@ function AuthProvider({ children }) {
           setUser(result.user);
         }
       })
-      .catch(() => {});
+      .catch((err) => {
+        console.error('Google login redirect error:', err);
+      });
     const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u)
       setLoading(false)
